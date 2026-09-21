@@ -3,7 +3,9 @@ import jwt from "jsonwebtoken";
 import prisma from "../lib/prisma.js";
 
 const getCookieOptions = (maxAge) => {
-  const isProduction = process.env.NODE_ENV === "production";
+  // Automatically detect cross-origin production environments
+  const isProduction = process.env.NODE_ENV === "production" || 
+                       (process.env.CLIENT_URL && !process.env.CLIENT_URL.includes("localhost"));
 
   return {
     httpOnly: true,
@@ -11,6 +13,7 @@ const getCookieOptions = (maxAge) => {
     sameSite: isProduction ? "none" : "lax",
     maxAge,
   };
+};
 };
 
 // Cookie lifetime in milliseconds; the JWT itself uses the "7d" shorthand
