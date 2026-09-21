@@ -1,0 +1,230 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--ghar-navbar-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--ghar-navbar-border);
+
+  &__inner {
+    height: $nav-height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    @include sm {
+      display: none;
+    }
+
+    a {
+      padding: 9px 16px;
+      border-radius: $radius-pill;
+      font-size: 15px;
+      font-weight: 600;
+      color: $ghar-ink-soft;
+      transition: all $transition;
+
+      &:hover {
+        color: $ghar-green;
+        background: $ghar-mint;
+      }
+
+      &.active {
+        color: $ghar-green;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    padding: 6px 12px 6px 6px;
+    border-radius: $radius-pill;
+    background: $ghar-white;
+    box-shadow: $shadow-sm;
+    transition: all $transition;
+
+    &:hover {
+      box-shadow: $shadow-md;
+    }
+  }
+
+  &__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid $ghar-white;
+  }
+
+  &__badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: $radius-pill;
+    background: #c0392b;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.4);
+  }
+
+  &__username {
+    font-size: 14px;
+    font-weight: 700;
+    color: $ghar-ink;
+
+    @include sm {
+      display: none;
+    }
+  }
+
+  &__cta {
+    @include sm {
+      display: none;
+    }
+  }
+
+  &__auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__signin {
+    font-size: 15px;
+    font-weight: 600;
+    color: $ghar-green;
+    padding: 10px 18px;
+    border-radius: $radius-pill;
+    transition: all $transition;
+
+    &:hover {
+      background: $ghar-mint;
+    }
+
+    @include sm {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border-radius: $radius-md;
+    background: $ghar-white;
+    box-shadow: $shadow-sm;
+    z-index: 1101;
+
+    span {
+      display: block;
+      height: 2.5px;
+      width: 100%;
+      border-radius: 4px;
+      background: $ghar-green;
+      transition: all 0.25s ease;
+    }
+
+    &.is-open {
+      span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+      }
+    }
+
+    @include sm {
+      display: flex;
+    }
+  }
+
+  &__drawer {
+    display: none;
+
+    @include sm {
+      display: flex;
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(78vw, 340px);
+    height: 100vh;
+    background: var(--ghar-grad-panel);
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 40px;
+      transform: translateX(100%);
+      visibility: hidden;
+      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0s linear 0.32s;
+      z-index: 1100;
+
+      &.is-open {
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+          visibility 0s;
+      }
+
+      a {
+        color: $ghar-on-dark;
+        font-size: 22px;
+        font-weight: 600;
+        padding: 12px 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(250, 246, 240, 0.12);
+      }
+    }
+  }
+}

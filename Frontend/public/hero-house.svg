@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDF6E7"/>
+      <stop offset="0.55" stop-color="#F9E7C6"/>
+      <stop offset="1" stop-color="#F3D9AE"/>
+    </linearGradient>
+    <linearGradient id="wallShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F3E4C8"/>
+      <stop offset="1" stop-color="#FFF6E4"/>
+    </linearGradient>
+    <radialGradient id="lampGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#CD9F52" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#CD9F52" stop-opacity="0"/>
+    </radialGradient>
+    <!-- toran leaf / pendant -->
+    <g id="leaf">
+      <path d="M0 -2 C 4.5 2 4.5 8 0 12 C -4.5 8 -4.5 2 0 -2 Z" fill="#BC8744"/>
+      <path d="M0 -2 C 2 2.2 2 7 0 11.4" stroke="#8A6230" stroke-width="0.7" fill="none"/>
+    </g>
+    <!-- clay diya with flame -->
+    <g id="diya">
+      <circle cx="0" cy="-9" r="12" fill="url(#lampGlow)"/>
+      <path d="M0 -15 C -4 -7 -5 -2 -5 1.5 A 8 4.6 0 0 0 5 1.5 C 5 -2 4 -7 0 -15 Z" fill="#C08E42"/>
+      <path d="M0 -11.5 C -2 -7 -2.6 -3.5 -2.6 -1.2" stroke="#FDF6E7" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+      <path d="M-12 2 A 12 9.5 0 0 0 12 2 Z" fill="#A76B41"/>
+      <path d="M-10.4 2.6 L 10.4 2.6" stroke="#D8B28C" stroke-width="1.6" stroke-linecap="round"/>
+    </g>
+    <!-- rangoli petal -->
+    <g id="petal">
+      <path d="M0 -6 C 6 -10 6 -17 0 -22 C -6 -17 -6 -10 0 -6 Z" fill="#BC8744"/>
+    </g>
+  </defs>
+
+  <!-- sky -->
+  <rect width="800" height="800" fill="url(#sky)"/>
+  <!-- sun with soft rays -->
+  <g opacity="0.16">
+    <path d="M668 62 L668 238 M578 150 L758 150" stroke="#A97130" stroke-width="4" stroke-linecap="round"/>
+    <path d="M606 88 L730 212 M730 88 L606 212" stroke="#A97130" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <circle cx="668" cy="150" r="88" fill="#C08E42" opacity="0.2"/>
+  <circle cx="668" cy="150" r="54" fill="#CA9A4E"/>
+  <circle cx="668" cy="150" r="54" fill="none" stroke="#A97130" stroke-width="2" opacity="0.55" stroke-dasharray="1 7" stroke-linecap="round"/>
+
+  <!-- birds -->
+  <path d="M286 236 Q 296 224 306 236 Q 316 224 326 236" stroke="#332316" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <path d="M344 190 Q 352 181 360 190 Q 368 181 376 190" stroke="#332316" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M204 178 Q 214 166 224 178 Q 234 166 244 178" stroke="#332316" stroke-width="3.6" stroke-linecap="round" fill="none"/>
+  <path d="M610 236 Q 620 224 630 236 Q 640 224 650 236" stroke="#332316" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- hills -->
+  <path d="M0 640 C 150 548, 330 660, 540 604 C 660 572, 742 596, 800 550 L 800 800 L 0 800 Z" fill="#66744F"/>
+  <path d="M0 706 C 190 636, 420 756, 610 704 C 700 680, 755 692, 800 672 L 800 800 L 0 800 Z" fill="#332316"/>
+
+  <!-- tree (left) -->
+  <rect x="146" y="520" width="20" height="104" rx="9" fill="#7A4A26"/>
+  <circle cx="156" cy="500" r="66" fill="#66744F"/>
+  <circle cx="122" cy="528" r="42" fill="#7F8F68"/>
+  <circle cx="186" cy="468" r="30" fill="#7F8F68"/>
+
+  <!-- tree (right) -->
+  <rect x="628" y="560" width="16" height="84" rx="8" fill="#7A4A26"/>
+  <circle cx="636" cy="536" r="52" fill="#66744F"/>
+  <circle cx="666" cy="556" r="32" fill="#7F8F68"/>
+
+  <!-- roof -->
+  <path d="M258 430 L400 286 L542 430 Z" fill="#332316"/>
+  <path d="M400 286 L400 314 L514 430 L542 430 Z" fill="#24180E" opacity="0.4"/>
+  <!-- roof edge tiles -->
+  <path d="M258 430 L400 286 L542 430 L524 430 L400 308 L276 430 Z" fill="#CA9A4E" opacity="0.25"/>
+
+  <!-- chimney -->
+  <rect x="484" y="318" width="30" height="74" rx="7" fill="#A76B41"/>
+  <path d="M484 318 L514 318 L514 332 L484 332 Z" fill="#7F4E2B"/>
+  <path d="M480 314 L518 314 L514 324 L484 324 Z" fill="#24180E"/>
+
+  <!-- house body -->
+  <rect x="282" y="430" width="236" height="188" rx="10" fill="url(#wallShade)"/>
+  <rect x="282" y="430" width="236" height="188" rx="10" stroke="#E0CFAA" stroke-width="4"/>
+  <!-- chhajja slab above -->
+  <rect x="272" y="448" width="256" height="12" rx="6" fill="#A76B41"/>
+  <rect x="272" y="454" width="256" height="3" fill="#7F4E2B" opacity="0.5"/>
+
+  <!-- hanging lanterns from chhajja -->
+  <g>
+    <line x1="300" y1="460" x2="300" y2="478" stroke="#A76B41" stroke-width="2"/>
+    <circle cx="300" cy="486" r="8" fill="#C08E42"/>
+    <circle cx="300" cy="486" r="4.4" fill="#FDF6E7"/>
+    <line x1="500" y1="460" x2="500" y2="478" stroke="#A76B41" stroke-width="2"/>
+    <circle cx="500" cy="486" r="8" fill="#C08E42"/>
+    <circle cx="500" cy="486" r="4.4" fill="#FDF6E7"/>
+  </g>
+
+  <!-- jaali window (left) -->
+  <g>
+    <rect x="304" y="478" width="70" height="74" rx="6" fill="#F7E8C6"/>
+    <path d="M304 490 C 304 470, 374 470, 374 490 L374 552 L304 552 Z" fill="#FFEFC9"/>
+    <path d="M304 490 C 304 470, 374 470, 374 490" stroke="#945A34" stroke-width="5" fill="none"/>
+    <line x1="304" y1="510" x2="374" y2="510" stroke="#945A34" stroke-width="4"/>
+    <line x1="304" y1="532" x2="374" y2="532" stroke="#945A34" stroke-width="4"/>
+    <line x1="321.7" y1="474" x2="321.7" y2="552" stroke="#945A34" stroke-width="3.2"/>
+    <line x1="339.3" y1="474" x2="339.3" y2="552" stroke="#945A34" stroke-width="3.2"/>
+    <line x1="357" y1="474" x2="357" y2="552" stroke="#945A34" stroke-width="3.2"/>
+    <circle cx="339" cy="521" r="5.4" fill="#C08E42" opacity="0.8"/>
+  </g>
+
+  <!-- jaali window (right) -->
+  <g>
+    <rect x="426" y="478" width="70" height="74" rx="6" fill="#F7E8C6"/>
+    <path d="M426 490 C 426 470, 496 470, 496 490 L496 552 L426 552 Z" fill="#FFEFC9"/>
+    <path d="M426 490 C 426 470, 496 470, 496 490" stroke="#945A34" stroke-width="5" fill="none"/>
+    <line x1="426" y1="510" x2="496" y2="510" stroke="#945A34" stroke-width="4"/>
+    <line x1="426" y1="532" x2="496" y2="532" stroke="#945A34" stroke-width="4"/>
+    <line x1="443.7" y1="474" x2="443.7" y2="552" stroke="#945A34" stroke-width="3.2"/>
+    <line x1="461.3" y1="474" x2="461.3" y2="552" stroke="#945A34" stroke-width="3.2"/>
+    <line x1="479" y1="474" x2="479" y2="552" stroke="#945A34" stroke-width="3.2"/>
+    <circle cx="461" cy="521" r="5.4" fill="#C08E42" opacity="0.8"/>
+  </g>
+
+  <!-- door -->
+  <rect x="368" y="520" width="64" height="98" rx="10" fill="#945A34"/>
+  <path d="M368 532 C 368 514, 432 514, 432 532 L432 618 L368 618 Z" fill="#A76B41"/>
+  <rect x="374" y="526" width="52" height="88" rx="6" fill="#24180E"/>
+  <!-- carved door panels -->
+  <path d="M374 546 C 374 534, 426 534, 426 546 L426 566 L374 566 Z" fill="#945A34"/>
+  <path d="M374 584 L426 584 L426 600 L374 600 Z" fill="#945A34"/>
+  <circle cx="413" cy="574" r="3.6" fill="#CA9A4E"/>
+  <!-- toran over door -->
+  <path d="M362 522 Q 400 540 438 522" stroke="#A76B41" stroke-width="3.5" fill="none"/>
+  <use href="#leaf" transform="translate(372,526)"/>
+  <use href="#leaf" transform="translate(388,531)"/>
+  <use href="#leaf" transform="translate(404,534)"/>
+  <use href="#leaf" transform="translate(420,531)"/>
+  <use href="#leaf" transform="translate(436,526)"/>
+  <!-- door frame sill -->
+  <rect x="362" y="614" width="76" height="8" rx="4" fill="#6E4020"/>
+
+  <!-- plinth / verandah step -->
+  <rect x="272" y="618" width="256" height="16" rx="8" fill="#A76B41"/>
+  <rect x="272" y="630" width="256" height="4" fill="#7F4E2B" opacity="0.5"/>
+
+  <!-- diyas row along the plinth -->
+  <use href="#diya" transform="translate(308,650)"/>
+  <use href="#diya" transform="translate(348,650)"/>
+  <use href="#diya" transform="translate(452,650)"/>
+  <use href="#diya" transform="translate(492,650)"/>
+
+  <!-- ground -->
+  <rect x="0" y="660" width="800" height="140" fill="#DCC99F" opacity="0"/>
+  <!-- path -->
+  <path d="M372 634 L428 634 L470 800 L330 800 Z" fill="#E9D7AE"/>
+  <path d="M372 634 L428 634 L470 800 L330 800 Z" fill="none" stroke="#D8C291" stroke-width="3"/>
+
+  <!-- rangoli at the doorstep -->
+  <g transform="translate(400,684)">
+    <circle r="34" fill="#FBF2E2"/>
+    <circle r="34" fill="none" stroke="#A76B41" stroke-width="2.4"/>
+    <circle r="27" fill="none" stroke="#BC8744" stroke-width="1.8" stroke-dasharray="3 3"/>
+    <g>
+      <use href="#petal" transform="rotate(0)"/>
+      <use href="#petal" transform="rotate(45)"/>
+      <use href="#petal" transform="rotate(90)"/>
+      <use href="#petal" transform="rotate(135)"/>
+      <use href="#petal" transform="rotate(180)"/>
+      <use href="#petal" transform="rotate(225)"/>
+      <use href="#petal" transform="rotate(270)"/>
+      <use href="#petal" transform="rotate(315)"/>
+    </g>
+    <circle r="8" fill="#CA9A4E"/>
+    <circle r="3.4" fill="#A76B41"/>
+  </g>
+
+  <!-- matka + plant (right) -->
+  <path d="M560 676 C 560 666 568 662 578 662 C 588 662 596 666 596 676 L 592 706 L 564 706 Z" fill="#A76B41"/>
+  <path d="M560 676 L 596 676" stroke="#C9A07C" stroke-width="2.4"/>
+  <path d="M578 662 C 566 640 574 624 586 610 C 596 628 594 646 584 660 Z" fill="#7F8F68"/>
+  <path d="M578 662 C 570 648 572 634 580 622" stroke="#66744F" stroke-width="2" fill="none"/>
+
+  <!-- marigold bush (left) -->
+  <circle cx="200" cy="668" r="36" fill="#7F8F68"/>
+  <circle cx="200" cy="668" r="20" fill="#66744F"/>
+  <circle cx="192" cy="652" r="6" fill="#C08E42"/>
+  <circle cx="207" cy="646" r="6" fill="#CA9A4E"/>
+  <circle cx="202" cy="662" r="5.4" fill="#BC8744"/>
+  <circle cx="212" cy="658" r="5.4" fill="#C08E42"/>
+
+  <!-- tufted grass dots -->
+  <circle cx="252" cy="668" r="2.4" fill="#66744F"/>
+  <circle cx="262" cy="676" r="2.4" fill="#66744F"/>
+  <circle cx="545" cy="742" r="2.4" fill="#66744F"/>
+  <circle cx="556" cy="748" r="2.4" fill="#66744F"/>
+  <circle cx="120" cy="750" r="2.4" fill="#66744F"/>
+  <circle cx="130" cy="744" r="2.4" fill="#66744F"/>
+</svg>

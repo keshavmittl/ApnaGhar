@@ -1,0 +1,243 @@
+@use "./styles/theme";
+@use "./styles/variables" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $ghar-cream;
+  // Fine bandhani-style dot texture — subtle heritage grain over the base tone
+  background-image: $texture-dots;
+  background-size: 18px 18px;
+  background-attachment: fixed;
+  color: $ghar-ink;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// ── Devanagari helpers ───────────────────────
+// .hindi         — readable inline Hindi (Mukta)
+// .hindi--display — bold heritage-style Hindi (Yatra One)
+.hindi {
+  font-family: $font-hindi;
+
+  &--display {
+    font-family: $font-hindi-display;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+}
+
+// Heritage ornament rule — line · diamond · line, centred under headings
+.ornament {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: $ghar-saffron;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 46px;
+    height: 1.5px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--ghar-saffron) 65%, transparent)
+    );
+  }
+
+  &::after {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--ghar-saffron) 65%, transparent),
+      transparent
+    );
+  }
+
+  &__diamond {
+    width: 9px;
+    height: 9px;
+    transform: rotate(45deg);
+    background: var(--ghar-grad-accent);
+    border-radius: 2px;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ghar-saffron) 18%, transparent);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-display;
+  font-weight: 600;
+  color: $ghar-ink;
+  line-height: 1.15;
+  transition: color 0.3s ease;
+}
+
+p {
+  line-height: 1.6;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 15px;
+  color: $ghar-ink;
+  &::placeholder {
+    color: $ghar-muted;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+// ── Shared primitives ─────────────────────────
+.container {
+  width: 100%;
+  max-width: $container;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: $radius-pill;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: all $transition;
+  cursor: pointer;
+
+  &--primary {
+    background: var(--ghar-grad-green);
+    color: $ghar-on-dark;
+    box-shadow: 0 8px 20px rgba(58, 41, 25, 0.32);
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(58, 41, 25, 0.38);
+    }
+  }
+
+  &--accent {
+    background: var(--ghar-grad-accent);
+    color: $ghar-on-dark;
+    box-shadow: 0 8px 20px rgba(150, 104, 43, 0.34);
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(150, 104, 43, 0.4);
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $ghar-green;
+    border: 1.5px solid $ghar-green;
+
+    &:hover {
+      background: $ghar-mint;
+    }
+  }
+
+  &--light {
+    background: $ghar-white;
+    color: $ghar-green;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      box-shadow: $shadow-md;
+      transform: translateY(-1px);
+    }
+  }
+
+  &--disabled,
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// Section heading helper
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: $ghar-saffron-dark;
+  }
+
+  &__title {
+    font-size: 34px;
+    font-weight: 600;
+  }
+
+  &__sub {
+    color: $ghar-ink-soft;
+    max-width: 560px;
+    font-size: 16px;
+  }
+}
+
+// ── Theme polish for third-party widgets ──────
+.Toastify__toast {
+  background: $ghar-white;
+  color: $ghar-ink;
+  border: 1px solid $ghar-line;
+  box-shadow: $shadow-md;
+
+  .Toastify__progress-bar {
+    background: var(--ghar-grad-accent);
+  }
+}
+
+.leaflet-container {
+  background: $ghar-sand;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: $ghar-white;
+  color: $ghar-ink-soft;
+}

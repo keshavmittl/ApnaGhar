@@ -1,0 +1,23 @@
+@use "../../styles/variables" as *;
+
+.uploadWidget {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: $radius-pill;
+  border: 1.5px dashed $ghar-green;
+  background: $ghar-mint;
+  color: $ghar-green;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all $transition;
+
+  &:hover {
+    background: var(--ghar-grad-green);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(58, 41, 25, 0.28);
+  }
+}

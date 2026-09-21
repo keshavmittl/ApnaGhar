@@ -1,0 +1,21 @@
+TECHNICAL_DOCUMENTATION.md
+
+# Dependencies
+node_modules/
+api/node_modules/
+Frontend/node_modules/
+socket/node_modules/
+
+# Environment files
+.env
+api/.env
+Frontend/.env
+socket/.env
+
+# Build output
+dist/
+build/
+.vite/
+Apna_Ghar_Project_Report.pdf
+PROJECT_REPORT.MD
+preview.html

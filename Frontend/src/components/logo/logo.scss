@@ -1,0 +1,35 @@
+.ag-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  &__mark {
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 10px rgba(51, 33, 20, 0.18));
+  }
+
+  &__text {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ghar-ink, #1f2a28);
+    letter-spacing: -0.02em;
+
+    b {
+      font-weight: 700;
+      color: #b07c39;
+    }
+  }
+
+  &--light &__text {
+    color: #faf6f0;
+
+    b {
+      color: #d2a75c;
+    }
+  }
+
+  &--light &__mark {
+    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.25));
+  }
+}

@@ -1,0 +1,114 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+
+      b {
+        color: $ghar-green;
+      }
+    }
+  }
+
+  &__typeChip {
+    background: $ghar-saffron-soft;
+    color: $ghar-saffron-deep;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: $radius-pill;
+    white-space: nowrap;
+  }
+
+  &__panel {
+    display: grid;
+    grid-template-columns: 1.6fr repeat(5, 1fr) auto;
+    gap: 14px;
+    align-items: end;
+    background: $ghar-white;
+    border: 1px solid $ghar-line;
+    border-radius: $radius-lg;
+    padding: 18px;
+    box-shadow: $shadow-sm;
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      &--wide {
+        @include lg {
+          grid-column: 1 / -1;
+        }
+      }
+
+      label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+        color: $ghar-muted;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 11px 14px;
+        border: 1.5px solid $ghar-line;
+        border-radius: $radius-md;
+        background: $ghar-cream;
+        font-size: 14.5px;
+        color: $ghar-ink;
+        transition: all $transition;
+
+        &:focus {
+          outline: none;
+          border-color: $ghar-green;
+          background: $ghar-white;
+          box-shadow: 0 0 0 3px var(--ghar-focus-ring);
+        }
+      }
+    }
+  }
+
+  &__apply {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 45px;
+    padding: 0 22px;
+    border-radius: $radius-md;
+    background: var(--ghar-grad-green);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all $transition;
+    white-space: nowrap;
+
+    &:hover {
+      box-shadow: 0 8px 18px rgba(58, 41, 25, 0.32);
+      transform: translateY(-1px);
+    }
+  }
+}

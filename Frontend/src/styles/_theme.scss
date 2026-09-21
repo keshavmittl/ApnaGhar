@@ -1,0 +1,137 @@
+// ─────────────────────────────────────────────
+// Apna Ghar — runtime theme (CSS custom props)
+// Nude / heritage-luxury palette: dark brown, warm taupe, sandy beige, pale cream.
+// Light is the default; [data-theme="dark"] on <html> switches to dark.
+// Sass token names in _variables.scss map to these vars.
+// ─────────────────────────────────────────────
+
+:root {
+  color-scheme: light;
+
+  // Brand browns — constant (used on fills and always-dark surfaces)
+  --ghar-green-dark: #332316;
+  --ghar-green-deep: #261a10;
+  --ghar-on-dark: #f7efe2; // text that sits on constant dark-brown surfaces
+
+  // Page + surfaces (pale cream / sandy beige neutrals)
+  --ghar-cream: #f7f0e4;
+  --ghar-sand: #efe3cf;
+  --ghar-sand-deep: #e5d6bb;
+  --ghar-line: #dccbb1;
+  --ghar-white: #fcf8f0;
+  --ghar-mint: #f0e6d2;
+  --ghar-mint-strong: #e8dbc0;
+
+  // Accent (themeable — espresso-brown brand: text, links, borders on surfaces)
+  --ghar-green: #503a26;
+  --ghar-green-light: #64492f;
+  --ghar-green-soft: #86694d;
+
+  // Heritage accents — warm clay
+  --ghar-terracotta: #9e6740;
+  --ghar-terracotta-soft: #f0e2d0;
+
+  // Heritage accents — muted antique gold / bronze
+  --ghar-marigold: #c7964a;
+  --ghar-saffron: #a97a3a;
+  --ghar-saffron-dark: #8b622c;
+  --ghar-saffron-deep: #74501f;
+  --ghar-saffron-soft: #efe3c9;
+  --ghar-amber: #a87a38;
+
+  // Text + feedback
+  --ghar-ink: #2b1f13;
+  --ghar-ink-soft: #594736;
+  --ghar-muted: #99876f; // warm taupe
+  --ghar-danger: #b0462f;
+  --ghar-danger-soft: #f7e0d6;
+  --ghar-success: #5e7b4e;
+
+  // Shadows (warm cocoa, soft)
+  --ghar-shadow-sm: 0 1px 2px rgba(59, 39, 20, 0.07),
+    0 2px 10px rgba(59, 39, 20, 0.07);
+  --ghar-shadow-md: 0 8px 28px rgba(59, 39, 20, 0.12);
+  --ghar-shadow-lg: 0 20px 60px rgba(59, 39, 20, 0.2);
+
+  // Component helpers
+  --ghar-navbar-bg: rgba(247, 240, 228, 0.88);
+  --ghar-navbar-border: rgba(220, 203, 177, 0.85);
+  --ghar-focus-ring: rgba(80, 58, 38, 0.16);
+  --ghar-grad-green: linear-gradient(135deg, #38291a 0%, #58412b 100%);
+  --ghar-grad-accent: linear-gradient(135deg, #96682b 0%, #c0923f 100%);
+  --ghar-grad-panel: linear-gradient(
+    160deg,
+    #1e130b 0%,
+    #332316 70%,
+    #51402a 100%
+  );
+  // Heritage texture: fine bandhani-style dots
+  --ghar-texture: radial-gradient(
+    circle at center,
+    rgba(150, 102, 48, 0.05) 1px,
+    transparent 1.6px
+  );
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  // Page + surfaces (warm espresso-charcoal)
+  --ghar-cream: #1a1410;
+  --ghar-sand: #221b14;
+  --ghar-sand-deep: #2e2519;
+  --ghar-line: #3f3326;
+  --ghar-white: #261e15;
+  --ghar-mint: #241c13;
+  --ghar-mint-strong: #352a1c;
+
+  // Accent becomes a light warm-taupe/cream so it reads on dark surfaces
+  --ghar-green: #e3ceac;
+  --ghar-green-light: #ead9bd;
+  --ghar-green-soft: #c3a57b;
+
+  // Heritage accents lift for dark backgrounds
+  --ghar-terracotta: #d5976c;
+  --ghar-terracotta-soft: #392619;
+  --ghar-marigold: #cba055;
+
+  // Saffron → warmer bronze on dark
+  --ghar-saffron: #c79b52;
+  --ghar-saffron-dark: #d6ae6b;
+  --ghar-saffron-deep: #e0bf88;
+  --ghar-saffron-soft: #352a15;
+
+  // Text + feedback
+  --ghar-ink: #f3e8d7;
+  --ghar-ink-soft: #ccb9a0;
+  --ghar-muted: #9d8972;
+  --ghar-danger: #e26a55;
+  --ghar-danger-soft: #3a1c15;
+  --ghar-success: #9fbc8b;
+
+  // Shadows — deeper, lower contrast
+  --ghar-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 2px 10px rgba(0, 0, 0, 0.35);
+  --ghar-shadow-md: 0 8px 28px rgba(0, 0, 0, 0.55);
+  --ghar-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.66);
+
+  // Component helpers
+  --ghar-navbar-bg: rgba(26, 20, 14, 0.86);
+  --ghar-navbar-border: rgba(63, 51, 38, 0.9);
+  --ghar-focus-ring: rgba(227, 206, 172, 0.25);
+  --ghar-grad-green: linear-gradient(135deg, #4a3421 0%, #6f5335 100%);
+  --ghar-grad-accent: linear-gradient(135deg, #9c7030 0%, #cb9d4b 100%);
+  // Panels that are always dark keep the espresso depth
+  --ghar-grad-panel: linear-gradient(
+    160deg,
+    #1e130b 0%,
+    #332316 70%,
+    #51402a 100%
+  );
+  // Heritage texture on dark — very faint warm dots
+  --ghar-texture: radial-gradient(
+    circle at center,
+    rgba(214, 168, 106, 0.05) 1px,
+    transparent 1.6px
+  );
+}

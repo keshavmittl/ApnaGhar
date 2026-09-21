@@ -1,0 +1,49 @@
+@use "../../styles/variables" as *;
+
+.errorPage {
+  flex: 1;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+
+  &__content {
+    max-width: 520px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+
+    .ag-logo {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__status {
+    font-family: $font-display;
+    font-size: 88px;
+    font-weight: 700;
+    line-height: 1;
+    color: $ghar-saffron;
+    margin-top: 8px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  &__message {
+    color: $ghar-ink-soft;
+    line-height: 1.6;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}

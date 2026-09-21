@@ -1,0 +1,158 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.slider {
+  width: 100%;
+  height: 380px;
+  display: flex;
+  gap: 14px;
+
+  @include sm {
+    height: 260px;
+    gap: 8px;
+  }
+
+  .fullSlider {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(26, 17, 11, 0.96);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+
+    .arrow {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .arrowButton {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all $transition;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+        }
+
+        @include sm {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      img {
+        width: 24px;
+        filter: invert(1);
+        opacity: 0.9;
+
+        &.right {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .imgContainer {
+      flex: 10;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 0;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: $radius-md;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all $transition;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+    }
+  }
+
+  .bigImage {
+    flex: 3;
+    border-radius: $radius-lg;
+    overflow: hidden;
+
+    @include sm {
+      flex: 2;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  .smallImages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow: hidden;
+    border-radius: $radius-lg;
+
+    @include sm {
+      gap: 8px;
+    }
+
+    button {
+      flex: 1;
+      min-height: 0;
+      padding: 0;
+      border-radius: $radius-md;
+      overflow: hidden;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}

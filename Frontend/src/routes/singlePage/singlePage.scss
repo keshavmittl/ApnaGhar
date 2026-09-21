@@ -1,0 +1,273 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.singlePage {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  padding: 32px 24px 120px;
+
+  @include lg {
+    grid-template-columns: 1fr 340px;
+  }
+
+  @include md {
+    grid-template-columns: 1fr;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+  }
+
+  &__side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__map {
+    height: 220px;
+    width: 100%;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__action {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .infoCard {
+    background: $ghar-white;
+    border: 1px solid $ghar-line;
+    border-radius: $radius-lg;
+    padding: 28px;
+    box-shadow: $shadow-sm;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include sm {
+      padding: 20px;
+    }
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+
+      @include sm {
+        flex-direction: column-reverse;
+      }
+    }
+
+    &__type {
+      display: inline-block;
+      width: fit-content;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+      color: $ghar-green;
+      background: $ghar-mint;
+      padding: 5px 14px;
+      border-radius: $radius-pill;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+
+      @include sm {
+        font-size: 24px;
+      }
+    }
+
+    &__address {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: $ghar-muted;
+      font-size: 14.5px;
+      margin-bottom: 16px;
+
+      img {
+        width: 16px;
+        height: 16px;
+        opacity: 0.6;
+      }
+    }
+
+    &__price {
+      font-family: $font-display;
+      font-size: 28px;
+      font-weight: 700;
+      color: $ghar-green;
+      background: $ghar-mint;
+      width: fit-content;
+      padding: 8px 20px;
+      border-radius: $radius-md;
+    }
+
+    &__owner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: $ghar-saffron-soft;
+      border: 1px solid $ghar-line;
+      border-radius: $radius-lg;
+      padding: 14px 20px;
+      height: fit-content;
+      flex-shrink: 0;
+
+      img {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid $ghar-white;
+        box-shadow: $shadow-sm;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        b {
+          font-size: 15.5px;
+        }
+
+        span {
+          font-size: 12.5px;
+          color: $ghar-muted;
+        }
+      }
+    }
+
+    &__desc {
+      color: $ghar-ink-soft;
+      font-size: 15.5px;
+      line-height: 1.75;
+      white-space: pre-wrap;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+
+      @include sm {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &__item {
+      background: $ghar-cream;
+      border: 1px solid $ghar-line;
+      border-radius: $radius-md;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      span {
+        font-size: 12px;
+        font-weight: 600;
+        color: $ghar-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+
+      b {
+        font-family: $font-display;
+        font-size: 18px;
+        color: $ghar-ink;
+      }
+
+      .capitalize {
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .sideCard {
+    background: $ghar-white;
+    border: 1px solid $ghar-line;
+    border-radius: $radius-lg;
+    padding: 22px;
+    box-shadow: $shadow-sm;
+
+    &__title {
+      font-family: $font-display;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 11px 0;
+      border-bottom: 1px solid $ghar-line;
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      span {
+        font-size: 14px;
+        color: $ghar-muted;
+      }
+
+      b {
+        font-size: 14px;
+        text-align: right;
+      }
+    }
+
+    &__nearby {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+
+      .nearby {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        > span {
+          font-size: 24px;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 1px;
+
+          b {
+            font-size: 14.5px;
+          }
+
+          p {
+            font-size: 13px;
+            color: $ghar-muted;
+          }
+        }
+      }
+    }
+  }
+}

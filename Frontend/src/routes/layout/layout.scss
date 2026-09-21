@@ -1,0 +1,25 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.layout {
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// Leaflet controls get a slight brand polish
+.leaflet-container {
+  font-family: $font-body;
+}
+
+.leaflet-control-zoom a {
+  color: $ghar-green !important;
+}

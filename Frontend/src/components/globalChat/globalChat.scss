@@ -1,0 +1,136 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.globalChat {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  
+  // Make sure it looks good on mobile too
+  @include sm {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  &__trigger {
+    background: var(--ghar-grad-green);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: $shadow-lg;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    svg {
+      fill: transparent;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: $ghar-danger;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $ghar-cream; // Using cream/white for contrast
+  }
+
+  &__window {
+    width: 380px;
+    height: 550px;
+    background: $ghar-cream;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+    border: 1px solid $ghar-line;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+
+    @include sm {
+      width: calc(100vw - 32px);
+      height: calc(100vh - 120px);
+    }
+  }
+
+  &__closeBtn {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: white;
+    color: $ghar-ink;
+    border: 1px solid $ghar-line;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s;
+
+    &:hover {
+      background: $ghar-danger-soft;
+      color: $ghar-danger;
+      border-color: transparent;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    overflow: hidden;
+    padding: 16px;
+    
+    // Adjust inner chat component to fit the window well
+    .chat {
+      height: 100%;
+      
+      .messages {
+        padding-top: 8px; // Leave room for close button
+      }
+    }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: $ghar-muted;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transform-origin: bottom right;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transform-origin: bottom right;
+  }
+}

@@ -1,0 +1,18 @@
+@use "../../styles/variables" as *;
+
+.map {
+  width: 100%;
+  height: 100%;
+  border-radius: $radius-lg;
+  z-index: 0;
+}
+
+.mapHost {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: $radius-lg;
+  border: 1px solid $ghar-line;
+  box-shadow: $shadow-sm;
+}

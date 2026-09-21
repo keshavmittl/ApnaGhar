@@ -1,0 +1,230 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .messages {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    &__empty {
+      color: $ghar-muted;
+      font-size: 14px;
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    .message {
+      background-color: $ghar-white;
+      padding: 14px 16px;
+      border-radius: $radius-md;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all $transition;
+      position: relative;
+
+      &:hover {
+        border-color: $ghar-line;
+        box-shadow: $shadow-sm;
+      }
+
+      &--unread {
+        background: $ghar-saffron-soft;
+        border-color: $ghar-saffron;
+      }
+
+      img {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 2px solid $ghar-white;
+        box-shadow: $shadow-sm;
+      }
+
+      &__body {
+        flex: 1;
+        min-width: 0;
+
+        span {
+          font-weight: 700;
+          font-size: 14.5px;
+          color: $ghar-ink;
+          display: block;
+        }
+
+        p {
+          font-size: 13px;
+          color: $ghar-muted;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      &__dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $ghar-saffron;
+        flex-shrink: 0;
+        box-shadow: 0 0 0 3px rgba(169, 122, 58, 0.28);
+      }
+    }
+  }
+
+  .chatBox {
+    height: 100%;
+    background-color: $ghar-white;
+    border: 1px solid $ghar-line;
+    border-radius: $radius-lg;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: $shadow-sm;
+
+    .top {
+      background: $ghar-mint;
+      border-bottom: 1px solid $ghar-line;
+      padding: 14px 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        img {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid $ghar-white;
+        }
+
+        .user__status {
+          display: block;
+          font-size: 12px;
+          font-weight: 600;
+          color: $ghar-success;
+        }
+      }
+
+      .close {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $ghar-white;
+        color: $ghar-ink-soft;
+        cursor: pointer;
+        transition: all $transition;
+
+        &:hover {
+          background: $ghar-danger-soft;
+          color: $ghar-danger;
+        }
+      }
+    }
+
+    .center {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: $ghar-cream;
+
+      .chatMessage {
+        max-width: 72%;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        &.own {
+          align-self: flex-end;
+          align-items: flex-end;
+
+          p {
+            background: var(--ghar-grad-green);
+            color: #fff;
+            border-bottom-right-radius: 4px;
+          }
+        }
+
+        p {
+          background: $ghar-white;
+          border: 1px solid $ghar-line;
+          padding: 10px 14px;
+          border-radius: $radius-md;
+          border-bottom-left-radius: 4px;
+          font-size: 14px;
+          line-height: 1.45;
+          word-break: break-word;
+        }
+
+        span {
+          font-size: 11px;
+          color: $ghar-muted;
+        }
+      }
+    }
+
+    .bottom {
+      border-top: 1px solid $ghar-line;
+      display: flex;
+      align-items: stretch;
+      min-height: 64px;
+
+      textarea {
+        flex: 1;
+        border: none;
+        padding: 18px 20px;
+        resize: none;
+        outline: none;
+        font-size: 14.5px;
+        background: $ghar-white;
+      }
+
+      button {
+        background: var(--ghar-grad-green);
+        color: #fff;
+        font-weight: 700;
+        font-size: 14.5px;
+        padding: 0 28px;
+        cursor: pointer;
+        transition: all $transition;
+
+        &:hover {
+          filter: brightness(1.08);
+        }
+
+        @include sm {
+          padding: 0 18px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+
+  @include md {
+    grid-template-columns: 1fr;
+  }
+
+  &__empty {
+    grid-column: 1 / -1;
+    color: $ghar-muted;
+    padding: 40px 0;
+    text-align: center;
+  }
+}

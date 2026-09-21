@@ -1,0 +1,116 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.comparePage {
+  flex: 1;
+  padding: 40px 24px 72px;
+
+  &__head {
+    margin-bottom: 32px;
+
+    h1 {
+      font-size: 32px;
+    }
+  }
+
+  &__empty {
+    background: $ghar-white;
+    border: 1px dashed $ghar-line;
+    border-radius: $radius-lg;
+    padding: 60px 32px;
+    text-align: center;
+    color: $ghar-muted;
+  }
+
+  .compareTable {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .compareRow {
+    display: flex;
+    gap: 10px;
+    min-width: 640px;
+
+    &--headers {
+      .compareLabel--empty {
+        background: transparent;
+      }
+    }
+  }
+
+  .compareLabel {
+    flex: 1;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: $ghar-ink-soft;
+    background: $ghar-sand;
+    padding: 13px 16px;
+    border-radius: $radius-md;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+  }
+
+  .compareCell {
+    flex: 1;
+    background: $ghar-white;
+    border: 1px solid $ghar-line;
+    padding: 13px 16px;
+    border-radius: $radius-md;
+    min-width: 180px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: $ghar-ink-soft;
+    transition: all $transition;
+
+    &.highlight {
+      background: $ghar-saffron-soft;
+      border-color: $ghar-saffron;
+      font-weight: 700;
+      color: $ghar-saffron-deep;
+    }
+  }
+
+  .compareHeader {
+    flex: 1;
+    min-width: 180px;
+    position: relative;
+    background: $ghar-white;
+    border: 1px solid $ghar-line;
+    border-radius: $radius-md;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+    }
+
+    b {
+      font-size: 13.5px;
+      padding: 12px 14px;
+      line-height: 1.3;
+    }
+
+    &__sold {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #c0392b;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: $radius-pill;
+    }
+  }
+}

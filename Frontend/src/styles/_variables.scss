@@ -1,0 +1,76 @@
+// ─────────────────────────────────────────────
+// Apna Ghar — Sass token names
+// Colours & shadows resolve to CSS custom properties (see _theme.scss) so the
+// light/dark theme can switch them at runtime. Each maps with a light-theme
+// fallback so a partial build still renders.
+// ─────────────────────────────────────────────
+
+// Brand browns — constant (fills & always-dark surfaces)
+$ghar-green-dark: var(--ghar-green-dark, #332316);
+$ghar-green-deep: var(--ghar-green-deep, #261a10);
+$ghar-on-dark: var(--ghar-on-dark, #f7efe2);
+
+// Page + surfaces
+$ghar-cream: var(--ghar-cream, #f7f0e4);
+$ghar-sand: var(--ghar-sand, #efe3cf);
+$ghar-sand-deep: var(--ghar-sand-deep, #e5d6bb);
+$ghar-line: var(--ghar-line, #dccbb1);
+$ghar-white: var(--ghar-white, #fcf8f0);
+$ghar-mint: var(--ghar-mint, #f0e6d2);
+$ghar-mint-strong: var(--ghar-mint-strong, #e8dbc0);
+
+// Accent
+$ghar-green: var(--ghar-green, #503a26);
+$ghar-green-light: var(--ghar-green-light, #64492f);
+$ghar-green-soft: var(--ghar-green-soft, #86694d);
+
+// Heritage accents
+$ghar-terracotta: var(--ghar-terracotta, #9e6740);
+$ghar-terracotta-soft: var(--ghar-terracotta-soft, #f0e2d0);
+$ghar-marigold: var(--ghar-marigold, #c7964a);
+
+// Saffron / amber
+$ghar-saffron: var(--ghar-saffron, #a97a3a);
+$ghar-saffron-dark: var(--ghar-saffron-dark, #8b622c);
+$ghar-saffron-deep: var(--ghar-saffron-deep, #74501f);
+$ghar-saffron-soft: var(--ghar-saffron-soft, #efe3c9);
+$ghar-amber: var(--ghar-amber, #a87a38);
+
+// Text + feedback
+$ghar-ink: var(--ghar-ink, #2b1f13);
+$ghar-ink-soft: var(--ghar-ink-soft, #594736);
+$ghar-muted: var(--ghar-muted, #99876f);
+$ghar-danger: var(--ghar-danger, #b0462f);
+$ghar-danger-soft: var(--ghar-danger-soft, #f7e0d6);
+$ghar-success: var(--ghar-success, #5e7b4e);
+
+// Shadows
+$shadow-sm: var(--ghar-shadow-sm);
+$shadow-md: var(--ghar-shadow-md);
+$shadow-lg: var(--ghar-shadow-lg);
+
+// Texture
+$texture-dots: var(--ghar-texture);
+
+// Typography (static)
+$font-display: "Fraunces", Georgia, "Times New Roman", serif;
+$font-body: "Plus Jakarta Sans", "Segoe UI", -apple-system, BlinkMacSystemFont,
+  sans-serif;
+// Devanagari display — bold, heritage-style Hindi (Yatra One)
+$font-hindi-display: "Yatra One", "Mukta", $font-body;
+// Devanagari body — readable inline Hindi (Mukta)
+$font-hindi: "Mukta", $font-body;
+
+// Radii (static)
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+$radius-pill: 999px;
+
+// Layout (static)
+$container: 1200px;
+$nav-height: 76px;
+
+// Transitions (static)
+$transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);

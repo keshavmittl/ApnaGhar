@@ -1,0 +1,622 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.homePage {
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 56px 0 40px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -220px;
+      right: -180px;
+      width: 560px;
+      height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(150, 104, 43, 0.14) 0%,
+        transparent 65%
+      );
+      pointer-events: none;
+    }
+
+    &::after {
+      content: "🪔";
+      position: absolute;
+      left: -30px;
+      bottom: 10px;
+      font-size: 64px;
+      opacity: 0.14;
+      transform: rotate(-8deg);
+      pointer-events: none;
+
+      @include sm {
+        display: none;
+      }
+    }
+
+    &__inner {
+      display: flex;
+      align-items: center;
+      gap: 56px;
+      position: relative;
+
+      @include md {
+        flex-direction: column-reverse;
+        gap: 32px;
+      }
+    }
+
+    &__text {
+      flex: 1.15;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    &__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: $ghar-saffron-soft;
+      border: 1px solid rgba(150, 104, 43, 0.28);
+      color: $ghar-saffron-deep;
+      font-family: $font-hindi;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 8px 18px;
+      border-radius: $radius-pill;
+
+      .hero__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--ghar-grad-accent);
+        box-shadow: 0 0 0 4px rgba(150, 104, 43, 0.2);
+      }
+    }
+
+    &__title {
+      font-size: 54px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: $ghar-green;
+      letter-spacing: 0.2px;
+
+      @include lg {
+        font-size: 44px;
+      }
+
+      @include sm {
+        font-size: 33px;
+        line-height: 1.34;
+      }
+    }
+
+    &__sub {
+      color: $ghar-ink-soft;
+      font-size: 16.5px;
+      max-width: 520px;
+
+      em {
+        font-style: italic;
+        color: $ghar-terracotta;
+      }
+    }
+
+    &__stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 14px;
+      padding-top: 20px;
+      border-top: 1px dashed $ghar-line;
+
+      @include sm {
+        gap: 22px;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+    }
+
+    &__stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      h2 {
+        font-size: 28px;
+        color: $ghar-saffron-dark;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 13px;
+        color: $ghar-muted;
+        font-weight: 600;
+      }
+    }
+
+    &__visual {
+      flex: 0.85;
+      position: relative;
+
+      @include md {
+        width: min(460px, 100%);
+      }
+
+      .hero__art {
+        width: 100%;
+        border-radius: 22px;
+        box-shadow: $shadow-lg;
+        border: 1px solid $ghar-line;
+      }
+    }
+
+    &__card {
+      position: absolute;
+      background: color-mix(in srgb, var(--ghar-white) 94%, transparent);
+      backdrop-filter: blur(8px);
+      border-radius: $radius-lg;
+      box-shadow: $shadow-lg;
+      padding: 14px 18px;
+      border: 1px solid color-mix(in srgb, var(--ghar-line) 70%, transparent);
+
+      &--price {
+        bottom: 22px;
+        left: -26px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        @include sm {
+          left: -6px;
+          bottom: 12px;
+          padding: 12px 14px;
+        }
+
+        .hero__cardLabel {
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          color: $ghar-terracotta;
+          font-family: $font-hindi;
+        }
+
+        b {
+          font-family: $font-display;
+          font-size: 22px;
+          color: $ghar-green;
+        }
+
+        span {
+          font-size: 13px;
+          color: $ghar-ink-soft;
+        }
+      }
+
+      &--verified {
+        top: 24px;
+        right: -18px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        @include sm {
+          right: -4px;
+          padding: 10px 12px;
+        }
+
+        .hero__verifiedBadge {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          background: var(--ghar-grad-green);
+          color: $ghar-on-dark;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 17px;
+          font-weight: 800;
+          flex-shrink: 0;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 1px;
+
+          b {
+            font-size: 14px;
+            color: $ghar-ink;
+          }
+
+          span {
+            font-size: 11.5px;
+            color: $ghar-muted;
+            font-family: $font-hindi;
+          }
+        }
+      }
+    }
+  }
+
+  // ── Heritage trust band ──────────────────────
+  .promise {
+    padding: 30px 0;
+
+    &__inner {
+      background: var(--ghar-grad-panel);
+      border-radius: $radius-xl;
+      padding: 46px 52px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: $shadow-lg;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: $texture-dots;
+        background-size: 22px 22px;
+        opacity: 0.8;
+        pointer-events: none;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 340px;
+        height: 3px;
+        border-radius: 0 0 4px 4px;
+        background: var(--ghar-grad-accent);
+      }
+
+      @include sm {
+        padding: 34px 26px;
+      }
+    }
+
+    &__kicker {
+      color: $ghar-marigold;
+      font-size: 26px;
+      margin-bottom: 4px;
+
+      @include sm {
+        font-size: 22px;
+      }
+    }
+
+    &__title {
+      color: $ghar-on-dark;
+      font-size: 36px;
+      margin-bottom: 10px;
+
+      em {
+        font-style: italic;
+        color: $ghar-marigold;
+      }
+
+      @include sm {
+        font-size: 28px;
+      }
+    }
+
+    &__lead {
+      color: rgba(250, 246, 240, 0.78);
+      font-size: 15.5px;
+      max-width: 640px;
+      margin-bottom: 26px;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      position: relative;
+
+      @include md {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    &__point {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: $radius-lg;
+      padding: 18px 18px;
+      transition: all $transition;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .promise__icon {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: var(--ghar-grad-accent);
+        color: #33200f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      h3 {
+        color: $ghar-on-dark;
+        font-size: 16.5px;
+        margin-bottom: 2px;
+      }
+
+      .promise__hindi {
+        color: $ghar-marigold;
+        font-size: 13.5px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .promise__desc {
+        color: rgba(250, 246, 240, 0.72);
+        font-size: 13.5px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  // ── Features ─────────────────────────────────
+  .features {
+    padding: 74px 0 40px;
+
+    .section-head__title {
+      font-family: $font-hindi-display;
+      font-weight: 400;
+      font-size: 36px;
+
+      @include sm {
+        font-size: 29px;
+      }
+    }
+
+    &__subHindi {
+      color: $ghar-terracotta;
+      font-size: 19px;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+
+      @include md {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature {
+      background: $ghar-white;
+      border: 1px solid $ghar-line;
+      border-radius: $radius-lg;
+      padding: 30px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all $transition;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--ghar-grad-accent);
+        opacity: 0;
+        transition: opacity $transition;
+      }
+
+      &:hover {
+        box-shadow: $shadow-md;
+        transform: translateY(-3px);
+
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      &__icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
+        background: $ghar-mint;
+        color: $ghar-green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        font-size: 20px;
+        margin-bottom: 2px;
+      }
+
+      &__hindi {
+        color: $ghar-saffron-dark;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      p:last-child {
+        color: $ghar-ink-soft;
+        font-size: 15px;
+      }
+    }
+  }
+
+  // ── Cities ───────────────────────────────────
+  .cities {
+    padding: 40px 0;
+
+    .section-head__eyebrow {
+      font-family: $font-hindi;
+      text-transform: none;
+      letter-spacing: 0.4px;
+      color: $ghar-terracotta;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+
+      @include md {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include sm {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .city {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: $ghar-white;
+      border: 1px solid $ghar-line;
+      border-radius: $radius-md;
+      padding: 16px 18px;
+      transition: all $transition;
+
+      &:hover {
+        border-color: $ghar-green;
+        box-shadow: $shadow-md;
+        transform: translateY(-2px);
+
+        .city__arrow {
+          transform: translateX(4px);
+          color: $ghar-saffron;
+        }
+      }
+
+      b {
+        flex: 1;
+        font-size: 15.5px;
+        font-weight: 700;
+        color: $ghar-ink;
+      }
+
+      &__pin {
+        font-size: 17px;
+      }
+
+      &__arrow {
+        font-size: 16px;
+        color: $ghar-muted;
+        transition: all $transition;
+      }
+    }
+  }
+
+  // ── CTA ──────────────────────────────────────
+  .cta {
+    padding: 40px 0 76px;
+
+    &__inner {
+      background: var(--ghar-grad-accent);
+      border-radius: $radius-xl;
+      padding: 46px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      box-shadow: $shadow-lg;
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: "🏡";
+        position: absolute;
+        right: 150px;
+        bottom: -30px;
+        font-size: 130px;
+        opacity: 0.1;
+        transform: rotate(-6deg);
+      }
+
+      @include sm {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 34px 26px;
+      }
+    }
+
+    &__text {
+      position: relative;
+      z-index: 1;
+    }
+
+    &__kicker {
+      color: #33200f;
+      font-size: 25px;
+      margin-bottom: 2px;
+      opacity: 0.85;
+
+      @include sm {
+        font-size: 21px;
+      }
+    }
+
+    h2 {
+      color: #33200f;
+      font-size: 29px;
+      margin-bottom: 8px;
+
+      @include sm {
+        font-size: 24px;
+      }
+    }
+
+    p {
+      color: rgba(51, 32, 15, 0.8);
+      font-size: 15.5px;
+      max-width: 520px;
+    }
+
+    &__button {
+      flex-shrink: 0;
+      font-size: 16px;
+      padding: 14px 28px;        background: #33200f;
+      color: #fdf0dc;
+      position: relative;
+      z-index: 1;
+
+      &:hover {
+        background: #251505;
+      }
+    }
+  }
+}
+
+// Ornament placed under section heads
+.section-head .ornament {
+  margin-top: 6px;
+}

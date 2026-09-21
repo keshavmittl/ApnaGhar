@@ -1,0 +1,106 @@
+@use "../../styles/variables" as *;
+@use "../../responsive.scss" as *;
+
+.profilePage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px 24px 64px;
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-width: 0;
+  }
+
+  &__chat {
+    position: sticky;
+    top: calc(#{$nav-height} + 20px);
+    height: calc(100vh - #{$nav-height} - 40px);
+    min-height: 500px;
+
+    @include md {
+      position: static;
+      height: 640px;
+    }
+  }
+
+  .profileCard {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: $ghar-white;
+    border: 1px solid $ghar-line;
+    border-radius: $radius-lg;
+    padding: 24px 28px;
+    box-shadow: $shadow-sm;
+    flex-wrap: wrap;
+
+    &__avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid $ghar-white;
+      box-shadow: $shadow-md;
+    }
+
+    &__info {
+      flex: 1;
+      min-width: 160px;
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 2px;
+      }
+
+      p {
+        color: $ghar-muted;
+        font-size: 14.5px;
+      }
+    }
+
+    &__actions {
+      display: flex;
+      gap: 10px;
+
+      @include sm {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+    }
+
+    &__logout {
+      color: $ghar-danger;
+      border-color: $ghar-danger;
+
+      &:hover {
+        background: $ghar-danger-soft;
+      }
+    }
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+
+    &__loading {
+      color: $ghar-muted;
+    }
+  }
+}

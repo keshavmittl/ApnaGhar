@@ -1,0 +1,26 @@
+@use "../../styles/variables" as *;
+
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $ghar-white;
+  border: 1px solid $ghar-line;
+  color: $ghar-saffron-dark;
+  box-shadow: $shadow-sm;
+  transition: all $transition;
+  cursor: pointer;
+
+  &:hover {
+    color: $ghar-saffron;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+
+  &--dark {
+    color: $ghar-amber;
+  }
+}
