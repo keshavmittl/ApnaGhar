@@ -1,16 +1,30 @@
 import "dotenv/config";
 import { Server } from "socket.io";
 
-// Allow a comma-separated list so staging/prod origins can be configured via env.
-const allowedOrigins = (process.env.FRONTEND_URL || "http://localhost:5173")
+const clientOrigins = (process.env.FRONTEND_URL || "http://localhost:5173")
   .split(",")
   .map((origin) => origin.trim())
   .filter(Boolean);
 
-// The socket server stays intentionally small: connect users, relay messages, clean up.
+const isAllowedOrigin = (origin) => {
+  if (!origin) return true;
+  if (clientOrigins.includes(origin)) return true;
+  try {
+    const { hostname } = new URL(origin);
+    return hostname === "localhost" || hostname.endsWith(".vercel.app");
+  } catch {
+    return false;
+  }
+};
+
 const io = new Server({
   cors: {
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+      if (isAllowedOrigin(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("CORS origin is not allowed."), false);
+    },
     methods: ["GET", "POST"],
     credentials: true,
   },
