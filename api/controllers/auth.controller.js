@@ -14,7 +14,6 @@ const getCookieOptions = (maxAge) => {
     maxAge,
   };
 };
-};
 
 // Cookie lifetime in milliseconds; the JWT itself uses the "7d" shorthand
 // because jsonwebtoken reads a bare number as SECONDS.
