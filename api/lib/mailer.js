@@ -1,8 +1,7 @@
 import nodemailer from "nodemailer";
 
 // SMTP delivery for the contact form. The transport is created lazily so the
-// API still boots on machines without mail credentials (same pattern as the
-// lazy Razorpay client). Configure SMTP_* vars in api/.env to enable sending.
+// API still boots on machines without mail credentials.
 
 const SMTP_HOST = process.env.SMTP_HOST || "smtp.gmail.com";
 const SMTP_PORT = parseInt(process.env.SMTP_PORT || "465", 10);
@@ -15,15 +14,37 @@ let transporter = null;
 
 const getTransporter = () => {
   if (!transporter) {
-    transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: SMTP_PORT,
-      secure: SMTP_PORT === 465, // true for 465, false for 587/25 (STARTTLS)
-      auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASS,
-      },
-    });
+    const isGmail =
+      (SMTP_HOST && SMTP_HOST.includes("gmail")) ||
+      (SMTP_USER && SMTP_USER.includes("gmail"));
+
+    // For Gmail, service: "gmail" provides the most reliable connection setup.
+    // Timeouts prevent the server from hanging if cloud network firewalls drop packets.
+    const transportOptions = isGmail
+      ? {
+          service: "gmail",
+          auth: {
+            user: SMTP_USER,
+            pass: SMTP_PASS,
+          },
+          connectionTimeout: 5000,
+          greetingTimeout: 5000,
+          socketTimeout: 5000,
+        }
+      : {
+          host: SMTP_HOST,
+          port: SMTP_PORT,
+          secure: SMTP_PORT === 465,
+          auth: {
+            user: SMTP_USER,
+            pass: SMTP_PASS,
+          },
+          connectionTimeout: 5000,
+          greetingTimeout: 5000,
+          socketTimeout: 5000,
+        };
+
+    transporter = nodemailer.createTransport(transportOptions);
   }
   return transporter;
 };
@@ -35,7 +56,7 @@ const getTransporter = () => {
 export const sendContactEmail = async ({ to, from, replyTo, subject, text, html }) => {
   const transport = getTransporter();
   return transport.sendMail({
-    from: from || SMTP_USER,
+    from: from || `Apna Ghar Support <${SMTP_USER}>`,
     to,
     replyTo,
     subject,

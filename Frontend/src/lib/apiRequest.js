@@ -8,6 +8,7 @@ const apiBaseUrl =
 const apiRequest = axios.create({
   baseURL: `${apiBaseUrl}/api`,
   withCredentials: true,
+  timeout: 15000, // 15-second safety timeout so no request ever hangs indefinitely
 });
 
 // A rejected token should not leave the app pretending the user is still signed
